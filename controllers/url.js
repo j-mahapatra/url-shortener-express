@@ -1,7 +1,7 @@
 const { nanoid } = require('nanoid');
 const urlModel = require('../models/url');
 
-async function createShortUrl(req, res) {
+async function createShortUrl(req, res, next) {
   try {
     if (!req.body || !req.body.url) {
       return res.status(400).json({
@@ -9,6 +9,10 @@ async function createShortUrl(req, res) {
         message: 'URL is required',
       });
     }
+
+    const url = new URL(
+      `${req.protocol}://${req.get('host')}${req.originalUrl}`
+    );
 
     const generatedId = nanoid(10);
     const redirectUrl = req.body.url;
@@ -18,10 +22,7 @@ async function createShortUrl(req, res) {
       redirectUrl,
     });
 
-    return res.json({
-      status: 'success',
-      generatedId,
-    });
+    next();
   } catch (error) {
     return res.status(400).json({
       status: 'failed',

@@ -8,7 +8,9 @@ const {
 const router = express.Router();
 
 router
-  .post('/create', createShortUrl)
+  .post('/create', createShortUrl, (req, res) => {
+    return res.redirect('/');
+  })
   .get('/details/:generatedId', getDetails)
   .get('/:generatedId', redirectToUrl);
 

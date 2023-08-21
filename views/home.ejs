@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/home.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1 class="title">URL Shortener</h1>
+    <form action="/create" method="post" class="url-form">
+      <label for="url">Enter URL:</label>
+      <input
+        id="url"
+        type="text"
+        name="url"
+        placeholder="Enter your URL here..."
+        required
+        class="url-form-input"
+      />
+      <input type="submit" value="Create" class="url-form-button" />
+    </form>
+    <% if (locals.generatedId) { %>
+    <span>
+      Your short URL has been generated:
+      <a target="_blank" href="<%= locals.urlOrigin + locals.generatedId %>">
+        <%= locals.urlOrigin + locals.generatedId %>
+      </a>
+    </span>
+    <% } %> <% if (locals.urls.length) { %>
+    <div class="table-container">
+      <table class="url-table">
+        <tr>
+          <th>S. No.</th>
+          <th>URL</th>
+          <th>Short URL</th>
+          <th>No. of visits</th>
+        </tr>
+        <% urls.forEach((url, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= url.redirectUrl %></td>
+          <td>
+            <a target="_blank" href="<%= locals.urlOrigin + url.generatedId %>"
+              ><%= locals.urlOrigin + url.generatedId %></a
+            >
+          </td>
+          <td><%= url.visitHistory.length %></td>
+        </tr>
+        <% }); %>
+      </table>
+    </div>
+    <% }; %>
+  </body>
+</html>

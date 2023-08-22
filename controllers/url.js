@@ -26,7 +26,7 @@ async function createShortUrl(req, res, next) {
   } catch (error) {
     return res.status(400).json({
       status: 'failed',
-      message: error,
+      message: error.message,
     });
   }
 }
@@ -57,7 +57,7 @@ async function redirectToUrl(req, res) {
   } catch (error) {
     return res.status(404).json({
       status: 'failed',
-      message: 'Invalid URL',
+      message: error.message,
     });
   }
 }

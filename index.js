@@ -3,8 +3,9 @@ require('dotenv').config();
 const { connectToDB } = require('./connectDB');
 const path = require('path');
 
-const urlRouter = require('./routes/url');
 const staticRouter = require('./routes/static');
+const urlRouter = require('./routes/url');
+const userRouter = require('./routes/user');
 
 const app = express();
 const port = process.env.PORT;
@@ -24,8 +25,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routers
-app.use(urlRouter);
 app.use(staticRouter);
+app.use(urlRouter);
+app.use('/user', userRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

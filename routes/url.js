@@ -4,11 +4,12 @@ const {
   redirectToUrl,
   getDetails,
 } = require('../controllers/url');
+const { checkAuthentication } = require('../middlewares/authentication');
 
 const router = express.Router();
 
 router
-  .post('/create', createShortUrl, (req, res) => {
+  .post('/create', checkAuthentication, createShortUrl, (req, res) => {
     return res.redirect('/');
   })
   .get('/details/:generatedId', getDetails)

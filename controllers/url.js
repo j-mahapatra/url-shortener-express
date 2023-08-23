@@ -10,16 +10,13 @@ async function createShortUrl(req, res, next) {
       });
     }
 
-    const url = new URL(
-      `${req.protocol}://${req.get('host')}${req.originalUrl}`
-    );
-
     const generatedId = nanoid(10);
     const redirectUrl = req.body.url;
 
     await urlModel.create({
       generatedId,
       redirectUrl,
+      createdBy: req.userEmail,
     });
 
     next();

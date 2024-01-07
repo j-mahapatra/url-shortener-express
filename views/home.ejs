@@ -7,7 +7,12 @@
     <title>Home</title>
   </head>
   <body>
-    <h1 class="title">URL Shortener</h1>
+    <div class="title-container">
+      <h1 class="title">URL Shortener</h1>
+      <form action="/user/logout">
+        <input type="submit" value="Logout" />
+      </form>
+    </div>
     <form action="/create" method="post" class="url-form">
       <label for="url">Enter URL:</label>
       <input

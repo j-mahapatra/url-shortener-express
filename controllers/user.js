@@ -30,6 +30,12 @@ async function createUser(req, res) {
 async function loginUser(req, res) {
   const { email, password } = req.body;
   const user = await userModel.findOne({ email });
+  if (!user) {
+    return res.render('login', {
+      status: 'failed',
+      message: 'Incorrect Email or Password',
+    });
+  }
   const isPasswordCorrect = await bcrypt.compare(password, user.password);
   if (!isPasswordCorrect) {
     return res.render('login', {
@@ -45,4 +51,9 @@ async function loginUser(req, res) {
   res.redirect('/');
 }
 
-module.exports = { createUser, loginUser };
+async function logoutUser(req, res) {
+  res.clearCookie('token');
+  res.redirect('/');
+}
+
+module.exports = { createUser, loginUser, logoutUser };

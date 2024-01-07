@@ -77,3 +77,15 @@ body {
   color: red;
   margin: 1rem;
 }
+
+.sign-up-link {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.sign-up-link form input {
+  color: turquoise;
+  background: none;
+  border: none;
+}

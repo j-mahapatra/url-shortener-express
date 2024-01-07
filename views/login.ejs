@@ -22,6 +22,10 @@
       <% if (locals.status === 'failed') { %>
       <p class="error-message"><%= locals.message %></p>
       <% } %>
+      <div class="sign-up-link">
+        <p>new user?</p>
+        <form action="/signup"><input type="submit" value="sign up" /></form>
+      </div>
     </div>
   </body>
 </html>

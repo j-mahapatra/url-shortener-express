@@ -12,6 +12,29 @@ body {
   background-color: rgb(36, 34, 34);
 }
 
+.title-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container h1 {
+  flex-grow: 1;
+}
+
+.title-container form input {
+  display: flex;
+  margin-right: 1rem;
+  border: none;
+  padding: 0.5rem;
+  background: turquoise;
+  border-radius: 0.2rem;
+  transition: all 0.25s linear;
+  cursor: pointer;
+  color: black;
+}
+
 .title {
   display: flex;
   justify-content: center;

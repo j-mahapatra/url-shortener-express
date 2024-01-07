@@ -2,7 +2,7 @@
 
 This app is used to shorten URLs. User can enter the URL that they want to shorten and create the short URL for the entered URL. 
 The app allows user authentication through cookies using JWT tokens. Views have been added for login, signup and home using the EJS template engine.
-The site is rendered on the server. It follows the MVC architecture.
+The site is rendered completely on the server. It follows the MVC architecture.
 
 # Routes
 
@@ -25,9 +25,9 @@ The site is rendered on the server. It follows the MVC architecture.
 
 # Screenshots
 
-![signup](https://github.com/j-mahapatra/url-shortener-express/assets/107102771/e0cedb1b-bd6f-4186-b10a-b5ce0145d20f)
-![login](https://github.com/j-mahapatra/url-shortener-express/assets/107102771/c568e6af-c744-4962-939c-931956a10b19)
-![home](https://github.com/j-mahapatra/url-shortener-express/assets/107102771/1799b9cb-2b48-400b-96e1-1c005c52d2ff)
+![Login](https://github.com/j-mahapatra/url-shortener-express/assets/107102771/57c3737c-47a3-4c9f-b180-db3931aad7e3)
+![Signup](https://github.com/j-mahapatra/url-shortener-express/assets/107102771/4d514b3d-9b15-434d-b40b-ae740fbd9ede)
+![Home](https://github.com/j-mahapatra/url-shortener-express/assets/107102771/3764b72c-2adc-4c34-81a8-ce317bf0433e)
 
 # Tech Used
 
